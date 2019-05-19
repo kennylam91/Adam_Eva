@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mo phong cau chuyen adam eva</title>
+</head>
+<body>
+<script>
+    let Apple = function (weight) {
+        this.weight = weight;
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.weightDecrease = function () {
+            this.weight--;
+        };
+        this.isEmpty = function () {
+            return this.weight === 0;
+        }
+    };
+    let Human = function (name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.say = function (string) {
+            console.log(string);
+        };
+        this.checkApple = function (apple) {
+            let check = apple.isEmpty();
+            return !check;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setName = function (name) {
+            this.name = name;
+        };
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        };
+        this.eat = function (apple) {
+
+            this.weight++;
+            apple.weight--;
+        };
+    };
+    tellStory();
+
+    function tellStory() {
+        let Adam = new Human("Adam", "male", 70);
+        let Eva = new Human("Eva", "female", 50);
+        let apple = new Apple(10);
+        Adam.say("Hello," + Eva.getName() + "!");
+        Eva.say("Hi, " + Adam.getName() + "!");
+        Adam.say("Let's eat this apple");
+        while (!apple.isEmpty()){
+            Eva.eat(apple);
+            Adam.eat(apple);
+        }
+        if(apple.isEmpty()) {
+            console.log(Adam.getWeight());
+            console.log(Eva.getWeight());
+            console.log(apple.getWeight());
+        }
+
+
+
+    }
+
+</script>
+</body>
+</html>
